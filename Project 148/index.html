@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Aditi's Evening Walk</title>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    </head>
+
+    <body>
+        <a-scene>
+            <!--Camera-->
+            <a-camera position='0 -1 15'></a-camera>
+
+            <!--Asset-->
+            <a-assets timeout='1000'>
+                <img id='boxTexture' src='bg.jpeg'>
+
+                <a-asset-item id='girl' src='./Models/humanModel/scene.gltf'></a-asset-item>
+                <a-asset-item id='bench' src='./Models/benchModel/scene.gltf'></a-asset-item>
+                <a-asset-item id='lamp' src='./Models/lampModel/scene.gltf'></a-asset-item>
+            </a-assets>
+
+            <!--Entities-->
+            <a-entity>
+                <a-box src='#boxTexture' height='15' width='15'></a-box>
+            </a-entity>
+
+            <a-entity 
+                scale='3 3 3'
+                gltf-model='#girl'
+                position='1 -6.5 1'
+                shadow='cast:true'
+            ></a-entity>
+
+            <a-entity 
+                scale='2 2 2'
+                gltf-model='#bench'
+                position='-3 -5.5 1'
+                shadow='cast:true'
+            ></a-entity>
+
+            <a-entity 
+                scale='2 2 2'
+                gltf-model='#lamp'
+                position='-3 -5 1'
+                shadow='cast:true'
+            ></a-entity>
+
+            <!--Light-->
+
+            <a-entity
+                light='type: point; castShadow: true; color: #e6ca14; intensity: 2.35' 
+                position='-5.92951 8.39487 1.29438'
+            ></a-entity>
+
+            <a-entity light='type: ambient;'></a-entity>
+
+            <!--Ground-->
+            <a-box 
+                position='0 -7 1'
+                color='grey'
+                depth='7'
+                height='1'
+                width='15'
+            ></a-box>
+
+        </a-scene>
+    </body>
+</html>
